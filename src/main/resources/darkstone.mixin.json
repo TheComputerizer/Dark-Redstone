@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "mods.thecomputerizer.darkstone.mixin",
+  "refmap": "mixins.darkstone.refmap.json",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockMixin"
+  ],
+  "client": []
+}
