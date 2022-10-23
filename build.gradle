@@ -22,8 +22,7 @@ archivesBaseName = 'darkstone'
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
-    mappings channel: 'snapshot', version: '20171003-1.12'	//TODO switch to stable_39
-    //accessTransformer = file('src/main/resources/META-INF/darkstone_at.cfg')
+    mappings channel: 'snapshot', version: '20171003-1.12'
     runs {
         client {
             workingDirectory project.file('run')
@@ -83,7 +82,6 @@ mixin {
 jar {
     manifest {
         attributes([
-            //"FMLAT": "darkstone_at.cfg",
             "Specification-Title": "darkstone",
             "Specification-Vendor": "The_Computerizer",
             "Specification-Version": project.version,

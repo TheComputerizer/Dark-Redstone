@@ -1,9 +1,9 @@
 [
 {
-  "modid": "musictriggers",
-  "name": "Music Triggers",
-  "description": "Sets the music based on in game triggers",
-  "version": "1.12.2-6.0-EX",
+  "modid": "darkstone",
+  "name": "Darkstone",
+  "description": "Stops redstone and redstone components from giving off light",
+  "version": "1.12.2-1.0",
   "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
