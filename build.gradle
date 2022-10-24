@@ -65,6 +65,7 @@ dependencies {
 
     //required mod dependencies
     implementation fg.deobf("curse.maven:mixin-booter-419286:3886235")
+    compileOnly fg.deobf("curse.maven:mixin-booter-419286:3886235")
 }
 
 processResources {
