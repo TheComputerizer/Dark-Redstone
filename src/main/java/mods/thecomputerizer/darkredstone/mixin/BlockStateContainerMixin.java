@@ -9,14 +9,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = BlockStateContainer.StateImplementation.class, priority = 1002)
+@Mixin(value = BlockStateContainer.StateImplementation.class)
 public class BlockStateContainerMixin {
 
     @Shadow
     @Final
     private Block block;
 
-    @Inject(method = "getLightValue", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "getLightValue*", at = @At(value = "HEAD"), cancellable = true)
     private void darkstone_getLightValue(CallbackInfoReturnable<Integer> cir) {
         if(block instanceof BlockRedstoneTorch || block instanceof BlockRedstoneWire
                 || block instanceof BlockRedstoneRepeater || block instanceof BlockRedstoneComparator
@@ -24,5 +24,4 @@ public class BlockStateContainerMixin {
             cir.setReturnValue(0);
         }
     }
-    //, target = "Lnet/minecraft/block/state/BlockStateContainer/StateImplementation;func_185906_d()I"
 }

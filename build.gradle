@@ -43,10 +43,9 @@ minecraft {
     }
 }
 
-sourceSets {
-    main {
-        ext.refMap = 'darkredstone.refmap.json'
-    }
+configurations {
+    embed
+    implementation.extendsFrom(embed)
 }
 
 repositories {
@@ -66,8 +65,15 @@ dependencies {
     //minecraft
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-    //required mod dependencies
-    implementation fg.deobf('curse.maven:mixin-booter-419286:4090558')
+    embed ("org.spongepowered:mixin:0.8.5") {
+        exclude module: "asm-commons"
+        exclude module: "asm-tree"
+        exclude module: "launchwrapper"
+        exclude module: "guava"
+        exclude module: "log4j-core"
+        exclude module: "gson"
+        exclude module: "commons-io"
+    }
 
     //mixin annotation processor
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
@@ -93,10 +99,11 @@ mixin {
 jar {
     manifest {
         attributes([
-                'FMLAT': 'accesstransformer.cfg',
-                'FMLCorePlugin': 'mods.thecomputerizer.darkredstone.core.EarlyMixinPlugin',
-                'FMLCorePluginContainsFMLMod': 'true',
-                'ForceLoadAsMod': 'true'
+                'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+                'FMLCorePlugin': 'mods.thecomputerizer.darkredstone.core.EarlyMixinPlugin'
         ])
+    }
+    from (configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude 'LICENSE.txt', 'META-INF/MANIFSET.MF', 'META-INF/maven/**', 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/services/*.Processor'
     }
 }
