@@ -43,12 +43,22 @@ minecraft {
     }
 }
 
+sourceSets {
+    main {
+        ext.refMap = 'darkredstone.refmap.json'
+    }
+}
+
 repositories {
     maven {
         url = uri("https://www.cursemaven.com")
         content {
             includeGroup "curse.maven"
         }
+    }
+    maven {
+        name = "Sponge"
+        url = uri("https://repo.spongepowered.org/maven")
     }
 }
 
@@ -58,6 +68,9 @@ dependencies {
 
     //required mod dependencies
     implementation fg.deobf('curse.maven:mixin-booter-419286:4090558')
+
+    //mixin annotation processor
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 processResources {

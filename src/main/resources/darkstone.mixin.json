@@ -1,5 +1,4 @@
 {
-  "required": true,
   "package": "mods.thecomputerizer.darkredstone.mixin",
   "refmap": "darkredstone.refmap.json",
   "minVersion": "0.8",
@@ -7,5 +6,8 @@
   "mixins": [
     "BlockStateContainerMixin"
   ],
-  "client": []
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
