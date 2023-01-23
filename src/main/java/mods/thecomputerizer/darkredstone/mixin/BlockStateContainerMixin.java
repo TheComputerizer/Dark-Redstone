@@ -1,5 +1,6 @@
-package mods.thecomputerizer.darkstone.mixin;
+package mods.thecomputerizer.darkredstone.mixin;
 
+import mods.thecomputerizer.darkredstone.Darkstone;
 import net.minecraft.block.*;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.util.math.BlockPos;
@@ -22,13 +23,19 @@ public class BlockStateContainerMixin {
     private void darkstone_getLightValue(CallbackInfoReturnable<Integer> cir) {
         if(block instanceof BlockRedstoneTorch || block instanceof BlockRedstoneWire
                 || block instanceof BlockRedstoneRepeater || block instanceof BlockRedstoneComparator
-                || block instanceof BlockCompressedPowered) cir.setReturnValue(0);
+                || block instanceof BlockCompressedPowered) {
+            Darkstone.LOGGER.info("Successfully altered a light value");
+            cir.setReturnValue(0);
+        }
     }
 
     @Inject(at = @At(value = "HEAD"), method = "getLightValue(Lnet/minecraft/world/IBlockAccess;Lnet/minecraft/util/math/BlockPos;)I", cancellable = true)
     private void darkstone_getLightValueWorld(IBlockAccess world, BlockPos pos, CallbackInfoReturnable<Integer> cir) {
         if(block instanceof BlockRedstoneTorch || block instanceof BlockRedstoneWire
                 || block instanceof BlockRedstoneRepeater || block instanceof BlockRedstoneComparator
-                || block instanceof BlockCompressedPowered) cir.setReturnValue(0);
+                || block instanceof BlockCompressedPowered) {
+            Darkstone.LOGGER.info("Successfully altered a light value");
+            cir.setReturnValue(0);
+        }
     }
 }

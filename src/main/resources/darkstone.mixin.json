@@ -1,7 +1,7 @@
 {
   "required": true,
-  "package": "mods.thecomputerizer.darkstone.mixin",
-  "refmap": "mixins.darkstone.refmap.json",
+  "package": "mods.thecomputerizer.darkredstone.mixin",
+  "refmap": "darkredstone.refmap.json",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
   "mixins": [

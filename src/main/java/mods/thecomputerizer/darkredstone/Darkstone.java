@@ -1,4 +1,4 @@
-package mods.thecomputerizer.darkstone;
+package mods.thecomputerizer.darkredstone;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -10,12 +10,12 @@ import org.apache.logging.log4j.Logger;
 public class Darkstone {
     public static final String MODID = "darkstone";
     public static final String NAME = "Darkstone";
-    public static final String VERSION = "1.12.2-1.0";
+    public static final String VERSION = "1.12.2-1.1";
     public static final String DEPENDENCIES = "required-after:mixinbooter";
     public static Logger LOGGER = LogManager.getLogger(MODID);
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.info("Successfully initialized darkstone!");
+        LOGGER.info("Successfully initialized dark redstone");
     }
 }
